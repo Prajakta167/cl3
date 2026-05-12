@@ -1,0 +1,15 @@
+chmod +x mapper.py reducer.py
+
+rm -rf ~/output
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+-input <input_file> \
+-output ~/output \
+-mapper "python3 mapper.py" \
+-reducer "python3 reducer.py"
+
+cat ~/output/part-00000
+
+====
+NOTE: Only works as it is with my installation steps. Commands may change with how HADOOP is installed
+====

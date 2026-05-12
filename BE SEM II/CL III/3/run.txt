@@ -1,0 +1,10 @@
+rm -rf ~/output
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+-input ~/input/input.txt \
+-output ~/output \
+-mapper "python3 mapper.py" \
+-reducer "python3 reducer.py"
+
+cat ~/output/part-r-00000 
+
